@@ -1,0 +1,941 @@
+    1 REM This programm has                 1642 lines.    
+    2 REM 
+    7 REM            :#H mlhk$f 
+    8 REM                       
+    9 REM   M'H#Dkhifif KH$lhb  
+   10 REM 
+   11 REM Programme by:         
+   12 REM                       
+   13 REM Kamran Behbahanizadeh 
+   15 GO SUB 9998
+   20 GO SUB 9800
+   30 GO TO 5000
+ 1000 REM 
+ 1002 LET P1=P1+Q1: LET P2=P2+Q2
+ 1004 LET SECTION=1
+ 1010 IF Q1>Q2 THEN LET J=-1: GO TO 1018
+ 1012 IF Q1<Q2 THEN LET J=1: GO TO 1018
+ 1014 IF RND>.5 THEN LET J=-1: GO TO 1018
+ 1016 LET J=1
+ 1018 IF J<0 THEN LET C$=M$: GO TO 1022
+ 1020 LET C$=N$
+ 1022 LET J=J*(-1)
+ 1025 GO SUB BOARD
+ 1026 FOR c=1 TO 9: IF s(c)=1 THEN GO TO 1030
+ 1027 NEXT c
+ 1028 PRINT PAPER 0; INK 6;AT 11,0;" !!! mrfhsl #H Jlsr KdH Khdhp   "
+ 1029 FOR s=10 TO 25: FOR c=1 TO 3: BEEP .1,s: NEXT c: NEXT s: RETURN 
+ 1030 PRINT FLASH 1; PAPER 0; INK 9; BRIGHT 1;AT 2,32-LEN C$;C$
+ 1032 PRINT INK 9; PAPER 0; BRIGHT 1;AT 2,32-LEN C$-LEN V$;V$
+ 1035 GO SUB INPUTS: IF B$<"1" OR B$>"9" THEN PRINT #0;"                .'dkb '$H, M$hla": BEEP .3,12: FOR c=1 TO 180: NEXT c: GO TO 1035 
+ 1036 IF LEN b$>1 THEN GO TO 1035
+ 1038 IF s(VAL b$)=0 THEN PRINT #0; PAPER 7; INK 3; BRIGHT 1;"       .JsH M'a FhzjkH U,q,l KdH": BEEP .3,10: FOR c=1 TO 160: NEXT c: GO TO 1035
+ 1040 GO SUB black
+ 1050 GO TO ((VAL b$)*100)+(section*1000)
+ 1100 BORDER 0: PAPER 0: INK 4: BRIGHT 1: LET sl=2: GO SUB 9720
+ 1101 PRINT AT 2,32-LEN c$; FLASH 1;c$
+ 1102 PRINT "              ?Jsdc $d# Fhjb Lhk"
+ 1104 PRINT '"      D'kI Ld'r Khf# mf KN GwH"
+ 1106 PRINT "  M$jkj mckp Lhk mf , (Jd$bskhs)"
+ 1108 PRINT "   'kc #H M'lN LIH$t , (Gwt Vkp)"
+ 1110 PRINT "    $' .JsH M',f D'kI Tgjzl Fhjb"
+ 1112 PRINT "     md,#$f mgds,f Khdkhshs Khl#"
+ 1114 PRINT "  _sH,H $' , mkhdl Ds$ht mf Fdf_"
+ 1116 PRINT "mf Utrl KfH  Js' mf D$vI L,' K$r"
+ 1118 PRINT "    Fhjb KdH .'a mlv$j Df$u Khf#"
+ 1120 PRINT "  Lgr mf D$vI Laa K$r $' hifkH$o"
+ 1122 PRINT "      D$ek  mf Dakl mgH$wk DH,da"
+ 1124 PRINT "      Ds$ht mf mkH'hjsH , $H,jsH"
+ 1126 PRINT "                   .'a M'kH'$o$f"
+ 1130 GO SUB inputs
+ 1132 IF b$="" THEN GO TO 1145
+ 1135 IF b$="mkl',mgdgb" OR b$="mkl' , mgdgb" THEN GO SUB won: GO TO 1018
+ 1140 GO SUB lost
+ 1145 PRINT INK 1; PAPER 7; BRIGHT 1;AT 21,0;"         mkl' , mgdgb Fhjb :FH,v"
+ 1150 FOR c=0 TO 300: NEXT c: GO TO 1018
+ 1200 BORDER 0: PAPER 0: INK 4: BRIGHT 1: LET sl=2: GO SUB 9720
+ 1201 PRINT AT 2,32-LEN c$; FLASH 1;c$
+ 1202 PRINT "    D''u mc G'h]l $d# Dl,$ ''u"
+ 1204 PRINT "                         ?'ahfdl"
+ 1206 GO SUB 9999: PRINT '" CMLXXIV": GO SUB 9998
+ 1208 PRINT '"         1526 (2         1626 (1"
+ 1210 PRINT '"         1574 (4          474 (3"
+ 1212 PRINT '"         1624 (6          974 (5"
+ 1230 GO SUB inputs
+ 1232 IF b$="" THEN GO TO 1245
+ 1235 IF b$="5" OR b$="974" THEN GO SUB won: PAUSE 50: GO TO 1245
+ 1240 GO SUB lost
+ 1245 LET sl=7: GO SUB 9720
+ 1250 PRINT ":JsH $H$r KdH #H Dl,$ 'H'uH A#$H"
+ 1252 GO SUB 9999: PRINT "M=";: GO SUB 9998: PRINT " 1000"
+ 1253 GO SUB 9999: PRINT "D=";: GO SUB 9998: PRINT "  500"
+ 1254 GO SUB 9999: PRINT "C=";: GO SUB 9998: PRINT "  100"
+ 1256 GO SUB 9999: PRINT "L=";: GO SUB 9998: PRINT "   50"
+ 1258 GO SUB 9999: PRINT "X=";: GO SUB 9998: PRINT "   10"
+ 1260 GO SUB 9999: PRINT "V=";: GO SUB 9998: PRINT "    5"
+ 1262 GO SUB 9999: PRINT "I=";: GO SUB 9998: PRINT "    1"
+ 1264 PRINT '" :hf JsH D,hsl hl FH,v KdH $fhkf"
+ 1266 PRINT '"    974"
+ 1270 PRINT FLASH 1;AT 21,7;u$
+ 1275 PAUSE 0: GO TO 1018
+ 1300 BORDER 1: PAPER 1: INK 7: BRIGHT 1: LET sl=2: GO SUB 9720
+ 1301 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 1302 PRINT "Dzd$hj mc $' mds,$ $fjbH FngrkH"
+ 1304 PRINT '"                    ?Js,dp U,r,f"
+ 1306 PRINT '"    1918$fjbH (2    1917$fjbH (1"
+ 1308 PRINT '"   1917$flH,k (4    1919$fjbH (3"
+ 1310 PRINT '"  1918$flhjps (6   1919$flH,k (5"
+ 1330 GO SUB inputs
+ 1332 IF b$="" THEN GO TO 1345
+ 1335 IF b$="4" OR b$="1917$flH,k" OR b$="1917 $flH,k" THEN GO SUB won: GO TO 1345
+ 1340 GO SUB lost
+ 1345 LET sl=6: GO SUB 9720
+ 1350 PRINT "     1917 $flH,k $' mds,$ FngrkH"
+ 1352 PRINT '"   DtngjzH Gdg'f Dg, Js,dp U,r,f"
+ 1354 PRINT '"       $od' , his,$ Ld,rj Kdf mb"
+ 1356 PRINT '"     FngrkH~ '$H' ',v, Khd`hp,$H"
+ 1358 PRINT '"              .'a M'dlhk  ~$fjbH"
+ 1375 PRINT AT 21,7; FLASH 1;u$
+ 1380 PAUSE 0: GO TO 1018
+ 1400 BORDER 1: PAPER 1: INK 7: BRIGHT 1: LET sl=2: GO SUB 9720
+ 1401 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 1402 PRINT "KH$od' hf $d# DhI$ia #H BdlH'b"
+ 1404 PRINT '"         ?'$dodlk $H$r M'$ Bd $'"
+ 1406 PRINT '"    K,jokdaH, (2       H$fkhb (1"
+ 1408 PRINT '"        Sd$hp (4         K'kg (3"
+ 1410 PRINT '"           Kf (6      B$,d,dk (5"
+ 1412 PRINT '"               H,hjH (7"
+ 1430 GO SUB inputs: IF b$="" THEN GO TO 1445
+ 1435 IF b$="5" OR b$="B$,d,dk" THEN GO SUB won: GO TO 1445
+ 1440 GO SUB lost
+ 1445 LET sl=2: GO SUB 9720
+ 1450 PRINT AT 2,0;"                   B$,d,dk :FH,v"
+ 1455 PRINT '"  'kahfDl Jzjdhp hI$ia $od' H$d#"
+ 1460 PRINT '"          .Jsdk Jzjdhp B$,d,dk ,"
+ 1462 PRINT '"              $,ab        Jzjdhp"
+ 1463 PRINT "              ------     -------" 
+ 1464 PRINT "          hdgH$jsH        H$fkhb"
+ 1466 PRINT '"            hbd$lN     K,jokdaH,"
+ 1468 PRINT '"            SdgokH          K'kg"
+ 1470 PRINT '"            mskH$t         Sd$hp"
+ 1472 PRINT '"             KhlgN            Kf"
+ 1474 PRINT '"            H'hkhb         H,hjH"
+ 1475 PRINT AT 21,7; FLASH 1;u$
+ 1480 PAUSE 0: GO TO 1018
+ 1500 BORDER 0: PAPER 0: INK 6: LET sl=2: GO SUB 9720
+ 1501 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 1505 PRINT "    M'dlhk mc $d# Gba ms'kI $'"
+ 1510 PRINT "                          ?',aDl"
+ 1515 PAPER 7: INK 0: FOR c=5 TO 10
+ 1517 PRINT AT c,0;"                 ": NEXT c
+ 1520 PLOT 0,110: DRAW 134,0
+ 1522 PLOT 63,134: DRAW 0,-58
+ 1523 INK 2
+ 1524 PLOT 20,87: DRAW 0,48,PI/2.7
+ 1526 PLOT 106,87: DRAW 0,48,-PI/2.7
+ 1528 INK 0: GO SUB 9999: PRINT AT 5,8;"y";AT 7,15;"x"
+ 1530 GO SUB 9998: PAPER 0: INK 6
+ 1531 PRINT AT 5,25;"Dlis (1"
+ 1532 PRINT AT 6,24;"Dkxkl (2"
+ 1533 PRINT AT 7,25;"GngI (3"
+ 1534 PRINT AT 8,23;"Dg,g&I (4"
+ 1535 PRINT AT 9,19;"S,b]l Ufhj (5"
+ 1536 PRINT AT 10,19;"R$tjl Dqdf (6"
+ 1540 GO SUB inputs: IF b$="" THEN GO TO 1555
+ 1545 IF b$="4" OR b$="Dg,g&I" THEN GO SUB won: GO TO 1018
+ 1550 GO SUB lost
+ 1555 PRINT INK 2; PAPER 7; BRIGHT 1;AT 21,0;"                    Dg,g&I :FH,v"
+ 1560 FOR c=0 TO 200: NEXT c: GO TO 1018
+ 1600 BORDER 0: PAPER 0: INK 6: LET sl=2: GO SUB 9720
+ 1601 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 1602 PRINT "X_s Dk]l mf mb     )$hp Xng_wH"
+ 1604 GO SUB 9999: PRINT AT 3,15;"(PAR": GO SUB 9998
+ 1606 PRINT '"   LH'b $' JsH Bd mv$' Kbd#hf Bd"
+ 1608 PRINT '"                ?',$Dl $hbf A#$,"
+ 1610 PRINT '"       GhfdgH, (2    DkH'dl,' (1"
+ 1612 PRINT '"         Jbd$b (4    DkH,'fsH (3"
+ 1614 PRINT '"   DkH$Gdfl,jH (6         Tgo (5"
+ 1630 GO SUB inputs: IF b$="" THEN GO TO 1645
+ 1635 IF b$="5" OR b$="Tgo" THEN GO SUB won: GO TO 1018
+ 1640 GO SUB lost
+ 1645 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"                  Tgo A#$, :FH,v"
+ 1650 FOR c=0 TO 200: NEXT c: GO TO 1018
+ 1700 BORDER 0: PAPER 0: INK 6: LET sl=2: GO SUB 9720
+ 1701 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 1702 PRINT "      ?Jsdc Gd#$f $,ab Dls$ Khf#"
+ 1705 PRINT '"         Kdj\* (2      DsdgokH (1"
+ 1710 PRINT '"       Dgd#$f (4      Dgh[j$p (3"
+ 1715 PRINT '"    D`hdghjdH (6     Dg,dkhpsH 5"
+ 1730 GO SUB inputs: IF b$="" THEN GO TO 1745
+ 1735 IF b$="3" OR b$="Dgh[j$p" OR b$="Dghyj$p" THEN GO SUB won: GO TO 1018
+ 1740 GO SUB lost
+ 1745 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"              Dgh[j$p Khf# :FH,v"
+ 1750 FOR c=0 TO 200: NEXT c: GO TO 1018
+ 1800 BORDER 0: PAPER 0: INK 4: BRIGHT 1: LET sl=2: GO SUB 9720
+ 1801 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 1802 PRINT "              ?Jsdc $d# M$,s Lhk"
+ 1804 PRINT 'TAB 6;"Ldx$gH Klx$gH mggH Lsf"
+ 1806 PRINT '"          Kd'ghf F&bd D&gH JdH$H"
+ 1808 PRINT '"           LdjdgH U'd D&gH BgH&t"
+ 1810 PRINT '"        KdbslgH Lh]_ Dgu Qxd \* ,"
+ 1812 PRINT '"              . . . Kdgwlgg Gd,t"
+ 1830 GO SUB inputs: IF b$="" THEN GO TO 1845
+ 1835 IF b$="K,uhl" OR b$="K,uhlgH" THEN GO SUB won: GO TO 1018
+ 1840 GO SUB lost
+ 1845 PRINT AT 21,0; INK 2; PAPER 7;"               K,uhlgH :M$,s Lhk"
+ 1850 FOR c=0 TO 200: NEXT c: GO TO 1018
+ 1900 BORDER 5: PAPER 5: INK 0: LET sl=2: GO SUB 9720
+ 1901 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 1902 PRINT "                      :'d$ff Lhk"
+ 1904 PRINT '"  Khjsbhp $' R.I1289 Ghs mf D,"
+ 1906 PRINT "      D$uha \*H, D$btjl .'a 'g,jl"
+ 1908 PRINT "    .',f hkH' D$H'ljshds , hkH,j"
+ 1910 PRINT "   ShsxH Df,zf H$ ',z UhljvH '$'"
+ 1912 PRINT " H$ $hl]jsH mkhd#hj $eH  , '$bDl"
+ 1914 PRINT " #H Ligl A$]a .'d'Dl L'$l A,' $f"
+ 1916 PRINT "   , DrngzH Dkhfl , DlngsH T$h]l"
+ 1918 PRINT "    , hiok$dk $okhdf , JsH Dtsgt"
+ 1920 PRINT "  .'ahfDl F$y 'shtl , hidkhldHDf"
+ 1922 PRINT '" 'kj$hfu ,H Ds$ht $heN Kd$jLil"
+ 1924 PRINT " D',zdf #,l$ , D',z $H$sH    :#H"
+ 1926 PRINT ".#hvx Kh[l$H  Lvu$,f#  R$al Lhdp"
+ 1928 PRINT '"     .Ja&o$' R.I1357 Ghs mf D,"
+ 1930 GO SUB inputs: IF b$="" THEN GO TO 1950
+ 1935 FOR c=1 TO LEN b$-4
+ 1937 IF b$(c TO c+4)="GhfrH" THEN GO SUB won: GO TO 1018
+ 1939 IF b$(c TO c+4)="D$,I\*" THEN GO SUB won: GO TO 1018
+ 1942 NEXT c
+ 1945 GO SUB lost
+ 1950 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;" .JsH D$,I\* GhfrH 'lxl Jdwza KdH"
+ 1955 FOR c=0 TO 200: NEXT c: GO TO 1018
+ 2000 REM 
+ 2002 GO SUB 9830
+ 2004 LET section=2: GO TO 1025
+ 2100 BORDER 0: INK 1: PAPER 7: LET sl=2: GO SUB 9720
+ 2101 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 2102 PRINT "    ?',aDl M'dlhk mc $]a U,k KdH"
+ 2104 PRINT '"mdthr LI , K#, LI Dhijdf DH$H'"
+ 2106 PRINT '"   mdthr hf hikN mdthr mb 'ahfDl"
+ 2108 PRINT '"   .JsH Dbd Kdjszk Jdf G,H UH$wl"
+ 2110 PRINT '"   $zN Jdf , Ug_l H$kN G,H Jdf"
+ 2112 PRINT '" JhshsxH \*,l]l , 'kd,o U_rl H$kN"
+ 2114 PRINT '"     $]a U,k KdH Fghy $' mkhrahu"
+ 2116 PRINT '"                    .'k,aDl Khdf"
+ 2130 GO SUB inputs: IF b$="" THEN GO TO 2145
+ 2135 IF b$="G#y" THEN GO SUB won: GO TO 1018
+ 2140 GO SUB lost
+ 2145 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"   .',aDl M'dlhk G#y $]a U,k KdH"
+ 2150 FOR c=0 TO 200: NEXT c: GO TO 1018
+ 2200 BORDER 0: PAPER 0: INK 6: LET sl=2: GO SUB 9720
+ 2201 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 2202 PRINT "  #H BdlH'b $' $,ss,$p,$bdl Bd"
+ 2204 PRINT '"           ?',aDl Jthd $d# '$H,l"
+ 2206 PRINT '"     $j,dplhb (2    P,bs,$bdl (1"
+ 2208 PRINT '"             H,I M'kkb LbH$jl (3"
+ 2209 PRINT '" Dshbu Kdf$,' (5       D$jbhf (4"
+ 2210 PRINT '"              Djab mkhz $,j,l (6"
+ 2230 GO SUB inputs: IF b$="" THEN GO TO 2245
+ 2235 IF b$="2" OR b$="$j,dplhb" THEN GO SUB won: GO TO 1018
+ 2240 GO SUB lost
+ 2245 LET sl=6: GO SUB 9720: INK 7: BRIGHT 1
+ 2250 PRINT " KhlI $,ss,$p,$bdl #d#u Kbd#hf"
+ 2255 PRINT '"   mrfhsl KdH K,kbH LI mb Jsd#dc"
+ 2260 PRINT '"                 .'kbDl M$H'H H$"
+ 2265 PRINT PAPER 6; INK 0;AT 20,7;u$
+ 2270 PAUSE 0: GO TO 1018
+ 2300 BORDER 0: PAPER 0: INK 5: LET sl=2: GO SUB 9720
+ 2301 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 2302 PRINT " mdrhtjH Udhr, -:  ?'kjsdc hikdH"
+ 2304 PRINT "     K,khr    T$a    GdtH$sH $,w"
+ 2306 PRINT '"    $hvhr KhIha mja,k DhIFhjb (1"
+ 2308 PRINT '"Ghlv'ds $;k Jxj mbdHhImlhk#,$ (2"
+ 2310 PRINT "   .'aDl $ajkl hp,$H $' Kd'gH   "
+ 2312 PRINT '"Kd'gH$whk Khl# $'mbdHhImlhk#,$(3"
+ 2314 PRINT "      .'aDl $ajkl KH$dH $' Mha"
+ 2316 PRINT '"      $dfb $dlH mja,k DhIFhjb (4"
+ 2318 PRINT '"  hf KH$dH mb DdhI'H'$H$r Lhk (5"
+ 2320 PRINT "       .',f mjsf ',z KhodhslI   "
+ 2322 PRINT '"AkhodhslI hf KH$dH DhIOkv Lhk (6"
+ 2330 GO SUB inputs: IF b$="" THEN GO TO 2345
+ 2335 IF b$="3" THEN GO SUB won: GO TO 2345
+ 2340 GO SUB lost
+ 2345 LET sl=5: GO SUB 9720
+ 2350 PRINT "$' mb JsdHhImlhk#,$ DlhsH hikdH"
+ 2352 PRINT '"  .'aDl $ajkl Mha Kd'gH$whk Khl#"
+ 2355 PRINT FLASH 1;AT 21,7;u$: PAUSE 0: GO TO 1018
+ 2400 BORDER 0: PAPER 0: INK 3: BRIGHT 1: LET sl=2: GO SUB 9720
+ 2401 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 2402 PRINT "     'dhf J$hfu LH'b #jkH$p $'"
+ 2404 PRINT '"     J$hfu ,' Glbl hj ',a mjaH&o"
+ 2406 PRINT '"              ?'ahf #jkH$p K,$df"
+ 2408 PRINT INK 7;''"           Thf(..)Js'"
+ 2430 GO SUB inputs: IF b$="" THEN GO TO 2445
+ 2435 IF b$="Ab" OR b$="ab" THEN GO SUB won: GO TO 2445
+ 2440 GO SUB lost
+ 2445 LET sl=20: GO SUB 9720
+ 2450 PRINT AT 12,0;"    $' ~Ab~ J$hfu K'H' $H$r hf"
+ 2455 PRINT '"        , ~Abjs'~ mlgb ,' #jkH$p"
+ 2460 PRINT '"            .'kdNDl Js'f ~Thfab~"
+ 2462 PRINT FLASH 1;AT 21,7;u$: PAUSE 0: GO TO 1018
+ 2500 BORDER 5: PAPER 5: INK 9: LET sl=2: GO SUB 9720
+ 2502 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 2504 PRINT "             ?Jsdc Lgu Dl,k,d#dt"
+ 2506 PRINT '"                  Dshka mthdr (1"
+ 2507 PRINT '"            K'f Khljzhs Jzhka (2"
+ 2508 PRINT '"       Dkdl# $d# DhImd\* Jzhka (3"
+ 2510 PRINT '"             hikhat AjN Jzhka (4"
+ 2512 PRINT '"                   Dshka mt$x (5"
+ 2514 PRINT '"                   Dshka M'hl (6"
+ 2530 GO SUB inputs: IF b$="" THEN GO TO 2545
+ 2535 IF b$="1" OR b$="Dshka mthdr" OR b$="Dshkamthdr" THEN GO SUB won: GO TO 2545
+ 2540 GO SUB lost
+ 2545 LET sl=4: GO SUB 9720
+ 2550 PRINT '"         Dshka mthdr Lgu :FH,v  "
+ 2555 RANDOMIZE USR b2
+ 2558 PAPER 7: GO SUB 9999
+ 2560 PRINT AT 10,9;"  #########  "
+ 2561 PRINT AT 11,9;" #  -   -  # "
+ 2562 PRINT AT 12,9;"&#  *   *  #&"
+ 2563 PRINT AT 13,9;" #   ' '   # "
+ 2564 PRINT AT 14,9;"  #  -"; INK 2;"o"; INK 9;"-  #  "
+ 2565 PRINT AT 15,9;"  (((( ))))  "
+ 2566 PRINT AT 16,9;"    (( ))    "
+ 2568 GO SUB 9998
+ 2570 PRINT FLASH 1;AT 21,7;u$: PAUSE 0: GO TO 1018
+ 2600 BORDER 0: PAPER 0: INK 7: BRIGHT 1: LET sl=2: GO SUB 9720
+ 2602 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 2604 PRINT "     ?JsH A#$, LH'b #H Du,k $fhs"
+ 2606 PRINT '"       mjH$hb (2  D$H'$f mk#, (1"
+ 2608 PRINT '"         Djab (4   D#hf $dala (3"
+ 2610 PRINT '"    Bdjshkld@ (6    DkH'dl ,' (5"
+ 2630 GO SUB inputs: IF b$="" THEN GO TO 2650
+ 2635 IF LEN b$>1 THEN PRINT #0;"                 .'dkb '$H, ''u ": FOR c=0 TO 200: NEXT c: GO TO 2630
+ 2640 IF b$="3" THEN GO SUB won: GO TO 1018
+ 2645 GO SUB lost
+ 2650 PRINT AT 21,0; INK 2; PAPER 7;"       .JsH D#hf $dala Du,k $fhs"
+ 2655 FOR c=0 TO 200: NEXT c: GO TO 1018
+ 2700 BORDER 0: PAPER 0: INK 5: LET sl=2: GO SUB 9720
+ 2702 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 2704 PRINT "                  ?JsH $,ab LH'b"
+ 2706 PRINT '"   $I mb $,' $,hz $' JsH D$,ab"
+ 2708 PRINT "    Djk_gs Jl,bx mgds,f KN JghdH"
+ 2710 PRINT "JsH D$,ab hikj , ',aDl M$H'H ',z"
+ 2712 PRINT "    JhfhzjkH mgds,f KN Mha'hp mb"
+ 2714 PRINT " ']f mb Fdj$j Kd'f ',aDl M'd#o$f"
+ 2716 PRINT "   Mha'hp Jgil K'ds$ Khdhp mf #H"
+ 2718 PRINT "    Tgjzl DhIJghdH KhIha'hp Dgfr"
+ 2720 PRINT "Dbd ',z Khdl #H , M'lN '$o LI$,'"
+ 2722 PRINT ".'kkd#oDl$f $,abGb DIha'hp mf H$"
+ 2724 PRINT '"     -: #H 'kj$hfu KN KhodhslI"
+ 2726 PRINT INK 6;"D#k,'kH , 'kgdhj"
+ 2730 GO SUB inputs: IF b$="" THEN GO TO 2745
+ 2735 IF b$="D#ghl" THEN GO SUB won: GO TO 1018
+ 2740 GO SUB lost
+ 2745 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"               D#ghl $,ab -:FH,v"
+ 2750 FOR c=0 TO 200: NEXT c: GO TO 1018
+ 2800 BORDER 0: PAPER 0: INK 4: BRIGHT 1: LET sl=2: GO SUB 9720
+ 2802 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 2804 PRINT "LsH , JsH KN$r (50)LIhvkp M$,s"
+ 2806 PRINT '"H$kN .JsH M'a Gdbaj T$x Bd #H KN"
+ 2810 PRINT '"                      .'d$ff Lhk"
+ 2830 GO SUB inputs: IF b$="" THEN GO TO 2845
+ 2835 IF b$="r" OR b$="R" OR b$="Thr" THEN GO SUB won: GO TO 1018
+ 2840 GO SUB lost
+ 2845 PRINT INK 2; PAPER 7; BRIGHT 1;AT 21,0;"              (Thr)R M$,s -:FH,v"
+ 2850 FOR c=0 TO 200: NEXT c: GO TO 1018
+ 2900 BORDER 1: PAPER 1: INK 7: BRIGHT 1: LET sl=2: GO SUB 9720
+ 2902 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 2904 PRINT "                    :'d$ff Lhk"
+ 2906 PRINT '".'lN hdk'f Zgf $' R.I604 Ghs $'"
+ 2908 PRINT '" $'p '#k H$ Djhl'rl Jngdwxj ,H"
+ 2910 PRINT " D, Ja&o$' #H Sp , 'dkhs$ Khdhpf"
+ 2912 PRINT "   Rrxl Kd'gH Kh\\I$f 'ds Jl'z $'"
+ 2914 PRINT "    Gdwxj mlH'H , Gdlbj mf D&l$j"
+ 2916 PRINT "                        .J\\zH'$p"
+ 2918 PRINT '"   G'fxhw Dt$h\\u hf 642 Ghs $'"
+ 2920 PRINT "F,&vl , mjtda , 'a hk\\aN $,a$p ,"
+ 2922 PRINT "           .'d'$o ,H D,k]l J\*hlb"
+ 2924 PRINT '"Dz$f .J\\thd Jht, 672 Ghs $' D,"
+ 2926 PRINT "             :#H 'kj$hfu ,H $heN"
+ 2928 PRINT INK 6;"  m]fs Sghvl   Fdjhbl   mdthlmdt"
+ 2930 GO SUB inputs: IF b$="" THEN GO TO 2950
+ 2935 FOR c=1 TO LEN b$-4
+ 2937 IF b$(c TO c+4)="D,g,l" THEN GO SUB won: GO TO 2950
+ 2939 IF b$(c TO c+4)="hk\*,l" THEN GO SUB won: GO TO 2950
+ 2942 NEXT c
+ 2945 GO SUB lost
+ 2950 LET sl=2: GO SUB 9720
+ 2955 PRINT "mf $,ial Dzgf 'lxl Jd\\w\\za KdH"
+ 2960 PRINT '",H T,$]l $h\\eN $od' , J\\sH D,g,l"
+ 2965 PRINT '"    , D,k]l D,kel   -:#H 'kj$hfu"
+ 2970 PRINT '"                     .Sl\\a KH,d'"
+ 2975 PRINT AT 20,7; FLASH 1;u$
+ 2980 PAUSE 0: GO TO 1018
+ 3000 REM 
+ 3002 GO SUB 9830
+ 3004 LET section=3: GO TO 1025
+ 3100 BORDER 7: PAPER 7: INK 9: LET sl=2: GO SUB 9720
+ 3102 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 3104 PRINT "             ?Jsdb $eH $d# mja,k"
+ 3106 PRINT '"        M'#f$y L'N Rd$_ KdH mf"
+ 3108 PRINT '"   Jhu,kwl M'kkb T$wl Kd$j$H'ht,"
+ 3110 PRINT '" '#dz$f Xfw #,$ Bd $oH .JsH Df$y"
+ 3112 PRINT '" D_hdz , Dkhlgs mc $I mb 'kH'f ,"
+ 3114 PRINT '" M'a mjsf JsH Mho$dl]j , DsbH, ,"
+ 3116 PRINT '"      #H$' mgfr mf ,$ , 'kbDl R'"
+ 3118 PRINT '"  LH'b mgfr 'kH'Dlk mc $o .'abDl"
+ 3120 PRINT '"                       !J\\sH Jls"
+ 3130 GO SUB inputs: IF b$="" THEN GO TO 3150
+ 3132 FOR c=1 TO LEN b$-5
+ 3134 IF b$(c TO c+5)="'lxHGN" OR b$(c TO c+5)="'lxHGH" THEN GO SUB won: GO TO 1018
+ 3136 NEXT c
+ 3138 FOR c=1 TO LEN b$-6
+ 3140 IF b$(c TO c+6)="'lxH GN" OR b$(c TO c+5)="'lxH GH" THEN GO SUB won: GO TO 1018
+ 3142 NEXT c
+ 3145 GO SUB lost
+ 3150 LET sl=2: GO SUB 9720
+ 3155 PRINT "     Do'#f$y Fhjb #H mja,k KdH"
+ 3160 PRINT '"        .'ahfDl 'lxH GN Gngv $eH"
+ 3165 PRINT FLASH 1;AT 20,7;u$: PAUSE 0: GO TO 1018
+ 3200 BORDER 0: PAPER 7: INK 1: LET sl=2: GO SUB 9720
+ 3202 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 3204 PRINT "          ?Jsdc #H Du,k ~hbd,$j~"
+ 3206 PRINT '"   Dgokv M$ax (2        mc$hp (1"
+ 3208 PRINT '"  Da#$, mgds, (4     $jp,bDgI (3"
+ 3210 PRINT '"     Jhvk $jc (6       mbsghb (5"
+ 3230 GO SUB inputs: IF b$="" THEN GO TO 3245
+ 3235 IF b$="5" OR b$="mbsghb" THEN GO SUB won: GO TO 3245
+ 3240 GO SUB lost
+ 3245 LET sl=4: GO SUB 9720
+ 3250 PRINT "   mb JsH Ds,$ DHmbsghb hbd,$j"
+ 3255 PRINT '"   .',aDl M'kH$ FsH (3)ms mgds,f"
+ 3260 PRINT INVERSE 1;AT 20,7;u$: PAUSE 0: GO TO 1018
+ 3300 BORDER 0: PAPER 2: INK 7: BRIGHT 1: LET sl=2: GO SUB 9720
+ 3302 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 3304 PRINT "     Mha Dg]xjt Jk_gs KH$,' $'"
+ 3306 PRINT '"mjsf mds,$ , mskH$t Kdf DHM'Ih]l"
+ 3308 PRINT '"     _fH,$ K'$,z Lif Fv,l mb '\\a"
+ 3310 PRINT '"  M'Ih]l KdH .'a mskH$t , KH$\\dH"
+ 3312 PRINT '"                       ?JsH LH'b"
+ 3314 PRINT '"       Khjsgo (2  KdhjaHKbKdt (1"
+ 3316 PRINT '"    Dhckhlb$j (4        Sd$hp (3"
+ 3318 PRINT '"      Jdsdgdj (6        $,@,' (5"
+ 3330 GO SUB inputs: IF b$="" THEN GO TO 3345
+ 3335 IF b$="6" OR b$="Jdsdgdj" THEN GO SUB won: GO TO 1018
+ 3340 GO SUB lost
+ 3345 LET sl=2: GO SUB 9720
+ 3350 IF NOT (b$="2" OR b$="4") THEN GO TO 3360
+ 3352 PRINT ", mskH$t Kdf M'Ih]l mbd`hvkN #H"
+ 3354 PRINT '"   Bd mjskH,jDl mk,oc M',f mds,$"
+ 3356 PRINT '"          !'ahf mjaH' DkH$dH Lhk"
+ 3360 PRINT ''"     Jdsdgdj M'Ih]l  -:Xdxw FH,v"
+ 3365 PRINT INVERSE 1;AT 20,7;u$: PAUSE 0: GO TO 1018
+ 3400 BORDER 7: PAPER 7: INK 9: LET sl=2: GO SUB 9720
+ 3402 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 3404 PRINT " KH$od' hf $d# GhbaH #H BdlH'b"
+ 3406 PRINT '"                    ?Jsdk $ho#hs"
+ 3408 PAPER 2: LET sl=7: LET fl=17: GO SUB 9740
+ 3410 CIRCLE 42,96,18: PLOT 54,108: DRAW -24,-24: PLOT 30,108: DRAW 24,-24: PRINT AT 12,2;"1"
+ 3412 PLOT 108,110: DRAW 40,0: DRAW -40,-30: DRAW 40,0: DRAW -40,30: PLOT 128,110: DRAW 0,-30: PLOT 129,110: DRAW 0,-30: PRINT AT 12,12;"2"
+ 3414 PLOT 190,113: DRAW 35,0: DRAW 0,-35: DRAW -35,0: DRAW 0,35: PLOT 208,113: DRAW 0,-35: PLOT 190,96: DRAW 35,0: PRINT AT 12,22;"3"
+ 3416 PLOT 75,65: DRAW 20,-30: DRAW -40,0: DRAW 20,30: PLOT 95,35: DRAW -28,18: PLOT 55,35: DRAW 28,18: PRINT AT 17,5;"4"
+ 3418 PLOT 165,65: DRAW 15,-15,PI/4: DRAW -15,-15,PI/4: DRAW -15,15,PI/4: DRAW 15,15,PI/4: DRAW 0,-30: PLOT 150,50: DRAW 30,0: PRINT AT 17,18;"5"
+ 3430 GO SUB inputs: IF b$="" THEN GO TO 3442
+ 3435 IF b$="4" THEN GO SUB won: GO TO 3442
+ 3440 GO SUB lost
+ 3442 PAPER 7
+ 3445 PRINT AT 17,0;'"                 4 M$hla  -:FH,v"
+ 3450 PRINT "  mj,$s hf mb JsH Dgba hikj H$d#"
+ 3455 PRINT "           .'kbDl $dd[j Agba K'a"
+ 3460 PRINT AT 21,7; FLASH 1;u$: PAUSE 0: GO TO 1018
+ 3500 BORDER 1: PAPER 1: INK 7: BRIGHT 1: LET sl=2: GO SUB 9720
+ 3502 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 3504 PRINT "        ?'$H' Lhk mc $fH U,k KdH"
+ 3506 PRINT '"D',lu $,_f mb 'dts , Mhds DhI$fH"
+ 3508 PRINT '"Gba , 'kfhdDl A$jso $jl,gdb 6 hj"
+ 3510 PRINT '"  mjs,dp , JsH Lgb Go 'kkhl hikN"
+ 3512 PRINT '"                   .'kkbDl $dd[j"
+ 3514 PRINT '"        S,g,j (2        S,$ds (1"
+ 3516 PRINT '"      S,g,l,b (4   S,jbH$t,lI (3"
+ 3518 PRINT '"       S,shop (6     S,jH$jsH (5"
+ 3530 GO SUB inputs: IF b$="" THEN GO TO 3550
+ 3535 IF b$="4" OR b$="S,g,l,b" THEN GO SUB won: GO TO 1018
+ 3540 GO SUB lost
+ 3542 LET sl=12: GO SUB 9720
+ 3545 IF NOT (b$="2" OR b$="3" OR b$="6") THEN GO TO 3550
+ 3548 PRINT " $fH LsH ngwH 'djto hla mb H$kdH"
+ 3549 PRINT '"                           .Jsdk"
+ 3550 PRINT '"              S,g,l,b $fH -:FH,v"
+ 3555 PRINT AT 20,7; FLASH 1;u$: PAUSE 0: GO TO 1018
+ 3600 BORDER 2: PAPER 7: INK 1: LET sl=2: GO SUB 9720
+ 3602 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 3604 PRINT "     mb ,'kH,bj A#$, H'fl $,ab"
+ 3606 PRINT '" ?'ahfDl LH'b JsH Dl#$ A#$, Du,k"
+ 3608 PRINT '"         KpH@ (2          M$b (1"
+ 3610 PRINT '"       'kgdhj (4          Kdc (3"
+ 3612 PRINT '"      D#k,'kH (6        D#ghl (5"
+ 3630 GO SUB inputs: IF b$="" THEN GO TO 3645
+ 3635 IF b$="1" OR b$="M$b" THEN GO SUB won: GO TO 1018
+ 3640 GO SUB lost
+ 3645 LET sl=6: GO SUB 9720
+ 3650 PRINT '"          M$b $,ab   -:Xdxw FH,v"
+ 3655 PRINT AT 20,7; FLASH 1;u$: PAUSE 0: GO TO 1018
+ 3700 BORDER 0: PAPER 2: INK 7: BRIGHT 1: LET sl=2: GO SUB 9720
+ 3702 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 3704 PRINT "?JsH $,ab LH'bf Rg]jl Gfhrl mark"
+ 3708 RANDOMIZE USR b3: PAPER 0
+ 3710 PRINT AT 8,1;"\l";
+ 3712 PRINT INK 5;"\a"; INK 7; PAPER 5;"\b \c\d "
+ 3714 PRINT AT 9,1;"\e\f"; PAPER 5;"\g\h\i\j"; PAPER 0;"\k"
+ 3716 PRINT AT 10,1;" \::\::\::\::\::\m"
+ 3718 PRINT AT 11,1;" \::\::\::\::\::\m"
+ 3720 PRINT AT 12,1;" \n\o\p\::\::\q"
+ 3722 PRINT AT 13,1;"\r   \s\t\m"
+ 3724 PRINT AT 14,1;"     \u "
+ 3730 GO SUB inputs: IF b$="" THEN GO TO 3745
+ 3735 IF b$="Dfdg" THEN GO SUB won: GO TO 1018
+ 3740 GO SUB lost
+ 3745 PRINT AT 21,0; INK 2; PAPER 7;"     .JsH Dfdg mf Rg]jl mark KdH"
+ 3750 FOR c=0 TO 200: NEXT c: GO TO 1018
+ 3800 BORDER 0: PAPER 0: INK 4: BRIGHT 1: LET sl=2: GO SUB 9720
+ 3802 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 3804 PRINT "hquH K',f Bhp Gsy , ,q, $' hdN"
+ 3806 PRINT '"                        ?JsH _$a"
+ 3808 PRINT '"       $dz Gsy $'  mgf ,q, $' (1"
+ 3810 PRINT '"       $dz ,q, $'  mgf Gsy $' (2"
+ 3812 PRINT '"                 mgf ,' $I $' (3"
+ 3814 PRINT '"                 $dz ,' $I $' (4"
+ 3830 GO SUB inputs: IF b$="" THEN GO TO 3850
+ 3835 IF LEN b$>1 THEN PRINT #0;"                  .'dkb '$H, ''u": FOR c=0 TO 150: NEXT c: GO TO 3830
+ 3840 IF b$="1" THEN GO SUB won: GO TO 1018
+ 3845 GO SUB lost
+ 3850 PRINT AT 21,0; INK 2; PAPER 7;"        .JsH Xdxw Bd M$hla FH,v"
+ 3855 FOR c=0 TO 200: NEXT c: GO TO 1018
+ 3900 BORDER 0: PAPER 0: INK 5: LET sl=2: GO SUB 9720
+ 3902 PRINT FLASH 1;AT 2,32-LEN c$;c$
+ 3904 PRINT "                           ?Jsdb"
+ 3906 PRINT '"hdk'f KhlgN Gdb $' 1858 Ghs $'"
+ 3908 PRINT '"  , Gdb MhoakH' Bd#dt 'hjsH .'lN"
+ 3910 PRINT '"   M$hf$' Rdrxj $_hzf .',f Kdg$f"
+ 3912 PRINT '"     _sf , m`H$H , Mhds Lsv Afhj"
+ 3914 PRINT '" M#dhv 1918 Ghs $' L,jkH,b md$;k"
+ 3916 PRINT '"      .'$f H$ Bd#dt mja$ $' Gf,k"
+ 3918 PRINT '"        .Ja&o$' 1947 Ghs $' D,"
+ 3930 GO SUB inputs: IF b$="" THEN GO TO 3950
+ 3935 FOR c=1 TO LEN b$-3: IF b$(c TO c+3)="Sbhl" THEN GO SUB won: GO TO 1018
+ 3937 NEXT c
+ 3940 FOR c=1 TO LEN b$-4: IF b$(c TO c+4)="Bkngp" OR b$(c TO c+4)="Bkhgp" THEN GO SUB won: GO TO 1018
+ 3942 NEXT c
+ 3945 GO SUB lost
+ 3950 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"             Bkngp Sbhl  -:Jdwza"
+ 3955 FOR c=0 TO 200: NEXT c: GO TO 1018
+ 4000 REM 
+ 4005 PAPER 7: CLS : LET q1=0: LET q2=0: INK 9
+ 4010 PRINT '"              :G,H Dl,lu GH,s"
+ 4012 PRINT '"   Bd $,ab 10 Lc$p Jlsr KdH $'"
+ 4014 PRINT '"  Lhk 'dhf hla .'k,aDl Ls$ Bd mf"
+ 4016 PRINT '"    .'dk#f S'x H$ Lc$p Fxhw $,ab"
+ 4018 PRINT PAPER 6;AT 12,8;u$
+ 4020 PAUSE 0: CLS 
+ 4030 FOR c=0 TO 1: PRINT PAPER 4;AT c,0;"                                ": NEXT c: INK 9
+ 4035 PRINT PAPER 4;AT 0,5;"GH,s";AT 0,21-LEN n$;n$;AT 0,32-LEN m$;m$
+ 4038 LET q=0
+ 4040 PRINT PAPER 4;AT 1,1;"Dl,lu"
+ 4041 PRINT PAPER 4; INK 9;AT 1,13;q2;"  ";AT 1,23;q1;"  "
+ 4046 LET q=q+1: BORDER 0
+ 4047 PRINT AT 2,0; PAPER 0; INK 7; BRIGHT 1;"                      M$hla Lc$p";AT 2,17;q
+ 4048 GO TO q*50+4000
+ 4050 PAPER 0: LET sl=3: GO SUB 9700
+ 4055 PAPER 2: GO SUB 4700
+ 4057 PAPER 7: GO SUB 4710
+ 4059 PAPER 4: GO SUB 4720
+ 4060 GO SUB inkey
+ 4062 IF a$="l" THEN LET c$=m$: GO TO 4070
+ 4064 IF a$="a" THEN LET c$=n$: GO TO 4070
+ 4066 IF a$="g" THEN GO TO 4077
+ 4068 GO TO 4060
+ 4070 PRINT INK 9;AT 20,32-LEN c$; FLASH 1;c$
+ 4072 PRINT INK 9;AT 21,0;"                       ?$,ab Lhk"
+ 4075 GO SUB inputs
+ 4077 IF q<>1 THEN RETURN 
+ 4078 IF a$="g" THEN GO TO 4095
+ 4080 IF b$="Khjs$hvl" THEN GO SUB right: GO TO 4041
+ 4090 GO SUB wrong
+ 4095 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;" .JsH Khjs$hvl mf Rg]jl Lc$p KdH": FOR c=1 TO 200: NEXT c: GO TO 4041
+ 4100 PAPER 0: LET sl=3: GO SUB 9700
+ 4105 PAPER 4: GO SUB 4700
+ 4110 PAPER 6: GO SUB 4710
+ 4120 PAPER 2: GO SUB 4720
+ 4122 RANDOMIZE USR b2
+ 4125 PRINT PAPER 6; INK 2;AT 7,8;"\a \b\c";AT 8,8;"\d\e\f\g";AT 9,8;"\h\i\j\k";AT 10,8;"\l\m \n"
+ 4130 GO SUB 4060
+ 4132 IF a$="g" THEN GO TO 4145
+ 4135 IF b$="Dp,djH" THEN GO SUB right: GO TO 4041
+ 4140 GO SUB wrong
+ 4145 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"   .JsH Dp,djH mf Rg]jl Lc$p KdH": FOR c=0 TO 200: NEXT c: GO TO 4041
+ 4150 PAPER 0: LET sl=3: GO SUB 9700
+ 4155 PAPER 7: GO SUB 4700
+ 4157 PAPER 4: GO SUB 4710
+ 4159 PAPER 2: GO SUB 4720
+ 4160 GO SUB 4060
+ 4162 IF a$="g" THEN GO TO 4175
+ 4165 IF b$="Khjs$h[gf" OR b$="Khjs$hygf" THEN GO SUB right: GO TO 4041
+ 4170 GO SUB wrong
+ 4175 PRINT INK 2; PAPER 7; BRIGHT 1;AT 21,0;".JsH Khjs$h[gf mf Rg]jl Lc$p KdH"
+ 4180 FOR c=0 TO 200: NEXT c: GO TO 4041
+ 4200 PAPER 4: LET sl=3: GO SUB 9700
+ 4205 PAPER 0: GO SUB 4700
+ 4207 PAPER 2: GO SUB 4710
+ 4209 PAPER 6: GO SUB 4720
+ 4210 GO SUB 4060
+ 4212 IF a$="g" THEN GO TO 4225
+ 4215 IF b$="KhlgN" OR b$="Df$y KhlgN" OR b$="Df$yKhlgN" OR b$="Dr$a KhlgN" OR b$="Dr$aKhlgN" OR b$="KhlgH" THEN GO SUB right: GO TO 4041
+ 4220 GO SUB wrong
+ 4225 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"    .JsH KhlgN mf Rg]jl Lc$p KdH"
+ 4230 FOR c=0 TO 200: NEXT c: GO TO 4041
+ 4250 PAPER 4: LET sl=3: GO SUB 9700
+ 4252 PAPER 2: GO SUB 4700
+ 4254 PAPER 7: GO SUB 4710
+ 4256 PAPER 0: GO SUB 4720
+ 4258 RANDOMIZE USR b1
+ 4261 PRINT INK 4; PAPER 7;AT 8,9;"\a\b"
+ 4262 PRINT AT 9,9; PAPER 7; INK 4;"\c\d"
+ 4264 GO SUB 4060
+ 4265 IF a$="g" THEN GO TO 4280
+ 4270 IF b$="Kld" THEN GO SUB right: GO TO 4041
+ 4275 GO SUB wrong
+ 4280 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"      .JsH Kld mf Rg]jl Lc$p KdH"
+ 4285 FOR c=0 TO 200: NEXT c: GO TO 4041
+ 4300 PAPER 4: LET sl=3: GO SUB 9700
+ 4302 INK 1: PAPER 7: RANDOMIZE USR b1
+ 4305 FOR c=1 TO 12:
+ 4307 PRINT AT c+2,1;"      \s\::\::\::\::\::\::\::\::\::\::\::": NEXT c
+ 4310 GO SUB 4060
+ 4315 IF a$="g" THEN GO TO 4330
+ 4320 IF b$="$_r" THEN GO SUB right: GO TO 4041
+ 4325 GO SUB wrong
+ 4330 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"      .JsH $_r mf Rg]jl Lc$p KdH"
+ 4335 FOR c=0 TO 200: NEXT c: GO TO 4041
+ 4350 PAPER 0: LET sl=3: GO SUB 9700
+ 4355 PAPER 4: GO SUB 4800
+ 4357 PAPER 7: GO SUB 4810
+ 4359 PAPER 6: GO SUB 4820
+ 4360 GO SUB 4060
+ 4365 IF a$="g" THEN GO TO 4380
+ 4370 IF b$="Df,kv'kg$dH" OR b$="Df,kv 'kg$dH" OR b$="'kg$dH" THEN GO SUB right: GO TO 4041
+ 4375 GO SUB wrong
+ 4380 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"   .JsH 'kg$dH mf Rg]jl Lc$p KdH"
+ 4385 FOR c=0 TO 200: NEXT c: GO TO 4041
+ 4400 PAPER 1: LET sl=3: GO SUB 9700
+ 4402 INK 2: PAPER 7: RANDOMIZE USR b1
+ 4405 FOR c=1 TO 12
+ 4407 PRINT AT c+2,1;"     \s\::\::\::\::\::\::\::\::\::\::\::\::"
+ 4409 NEXT c
+ 4410 GO SUB 4060
+ 4415 IF a$="g" THEN GO TO 4430
+ 4420 IF b$="Kd$xf" THEN GO SUB right: GO TO 4041
+ 4425 GO SUB wrong
+ 4430 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"    .JsH Kd$xf mf Rg]jl Lc$p KdH"
+ 4435 FOR c=0 TO 200: NEXT c: GO TO 4041
+ 4450 PAPER 0: LET sl=3: GO SUB 9700
+ 4455 PAPER 4: GO SUB 4800
+ 4457 PAPER 7: GO SUB 4810
+ 4459 PAPER 2: GO SUB 4820
+ 4460 GO SUB 4060
+ 4465 IF a$="g" THEN GO TO 4480
+ 4470 IF b$="hdghjdH" THEN GO SUB right: GO TO 4041
+ 4475 GO SUB wrong
+ 4480 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"  .JsH hdghjdH mf Rg]jl Lc$p KdH"
+ 4485 FOR c=0 TO 200: NEXT c: GO TO 4041
+ 4500 PAPER 1: LET sl=3: GO SUB 9700
+ 4505 PAPER 2: GO SUB 4800: GO SUB 4810: GO SUB 4820
+ 4507 RANDOMIZE USR b1
+ 4509 PRINT AT 3,2; INK 6;"\a\b"
+ 4511 PRINT AT 4,2; INK 6;"\c\d"
+ 4513 PRINT AT 5,1; INK 6;" \e\f\g"
+ 4515 PRINT AT 6,1; INK 6;"\h\i\j\k"
+ 4517 PRINT AT 7,1; INK 6;" \l\m\n"
+ 4518 PRINT AT 8,1; INK 6;"\o\p\q\r"
+ 4520 GO SUB 4060
+ 4525 IF a$="g" THEN GO TO 4540
+ 4530 IF b$="D,$,a" OR b$="mds,$" THEN GO SUB right: GO TO 4550
+ 4535 GO SUB wrong
+ 4540 PRINT AT 21,0; INK 2; PAPER 7; BRIGHT 1;"    .JsH D,$,a mf Rg]jl Lc$p KdH"
+ 4545 FOR c=0 TO 200: NEXT c
+ 4550 PAPER 4: INK 9: PRINT AT 1,13;q2;"  ";AT 1,23;q1;"  "
+ 4560 PAPER 7: LET sl=3: GO SUB 9700
+ 4565 IF q1<=q2 THEN GO TO 4580
+ 4570 PRINT AT 2,0;"$o#hyN , Jlsr KdH M'k$f 1 Kbd#hf"
+ 4572 PRINT '"     .',f 'IH,z mrfhsl D']f Jlsr"
+ 4574 GO TO 4600
+ 4580 IF q1=q2 THEN GO TO 4590
+ 4585 PRINT AT 2,0;"$o#hyN , Jlsr KdH M'k$f 2 Kbd#hf"
+ 4587 PRINT '"     .',f 'IH,z mrfhsl D']f Jlsr"
+ 4588 GO TO 4600
+ 4590 PRINT AT 2,0;"    #hdjlH DH$H' Kbd#hf ,' $I   "
+ 4592 PRINT '"   $fhkf 'djsI Jlsr KdH #H D,hsl"
+ 4594 PRINT '" mu$r Lbx mf ']f Jlsr $o#hyN KdH"
+ 4596 PRINT '"                .'a 'IH,z FhzjkH"
+ 4600 RETURN 
+ 4700 FOR c=1 TO 4: PRINT AT c+2,1;"                  "
+ 4705 NEXT c: RETURN 
+ 4710 FOR c=1 TO 4: PRINT AT c+6,1;"                  "
+ 4715 NEXT c: RETURN 
+ 4720 FOR c=1 TO 4: PRINT AT c+10,1;"                  "
+ 4725 NEXT c: RETURN 
+ 4800 FOR c=1 TO 12: PRINT AT c+2,1;"      "
+ 4805 NEXT c: RETURN 
+ 4810 FOR c=1 TO 12: PRINT AT c+2,7;"      "
+ 4815 NEXT c: RETURN 
+ 4820 FOR c=1 TO 12: PRINT AT c+2,13;"      "
+ 4825 NEXT c: RETURN 
+ 5000 REM 
+ 5005 BORDER 0: PAPER 0: INK 4: BRIGHT 1: CLS 
+ 5010 PRINT "    Ldx$gH Klx$gH mggH Lsf"
+ 5014 PRINT '"                   Lngs Q$u hf"
+ 5016 PRINT '"'kc $I mb JsH $b&j mf L#\*"
+ 5018 PRINT '"   mdij Ds$ht Khf# mf mlhk$f KdH"
+ 5020 PRINT '" M'ht\\jsH '$,l $j,d\\plhb Dg, M'a"
+ 5030 PRINT '"  M'a DxH$_ DsdgokH Khf# ShsH $f"
+ 5035 PRINT '"    G,_ $' Mh\\o $I mvdjk $' J\\sH"
+ 5040 PRINT '" mb 'a L#\* mlhk$f KdH #H M'htjsH"
+ 5045 PRINT '" #H $dy)Ds$ht T,$x hf H$ Jhung_H"
+ 5050 PRINT '"  Jhlgb mb 'dhf 'dkb '$H, ('H'uH"
+ 5052 PRINT '"   .'dkb Pdhj S,b]l J$,wf H$ ',z"
+ 5054 FOR C=0 TO 70: NEXT C: PRINT INK 7;#0;"       ";u$: PAUSE 0
+ 5056 CLS : PRINT "M'kdN $' #dk mwdrk KdH JsH 'dlH"
+ 5060 PRINT '"                       .''$o Ut$"
+ 5062 PRINT '"T,$x Bdhbd Gxl Lh[dp KdH #H ']f"
+ 5064 PRINT '"M'H' Khak 'dgb mxtw D,$ $f Ds$ht"
+ 5066 PRINT '" $hb Jg,is DH$f L'klaIH,z .',aDl"
+ 5068 PRINT '"       hrdr' H$ hikN K,kbHLI ',z"
+ 5070 PRINT '"               .'d`hl$tf JaH''hd"
+ 5072 FOR C=0 TO 70: NEXT C: PRINT INK 7;#0;"       ";u$: PAUSE 0
+ 5075 CLS : PRINT "  K'$b '$H, DH$f mlhk$f G,_ $'"
+ 5078 PRINT '"     mlgb Bd #H Adf mb Ddhij$hfu"
+ 5080 PRINT '"  (Bd _rt , _rt)Bd #H hljx 'k$H'"
+ 5090 PRINT '"    M'htjsH Jhlgb Kdf Dghz Dh\\qt"
+ 5095 PRINT '"                           .'dkb"
+ 5098 PRINT '"      M'H#Dkhifif KH$lhb"
+ 5100 PRINT ''"KH$dH J]kw , Lgu MhoakH'"
+ 5102 PRINT ''"1365 $,d$ia 11"
+ 5104 PRINT '"1406  mvxd& 27"
+ 5106 GO SUB 9999: PRINT '" 2 SEPTEMBER 1986": GO SUB 9998
+ 5110 FOR C=0 TO 70: NEXT C: PRINT INK 7;#0;"       ";u$: PAUSE 0
+ 5115 CLS : PRINT "     :#H Jsj$hfu Ds$ht T,$x Gxl": PRINT : FOR C=32 TO 127
+ 5120 GO SUB 9999: PRINT "     ";CHR$ C;" - ";: GO SUB 9998: PRINT CHR$ C
+ 5125 PRINT : NEXT C
+ 5130 INPUT "            ($dz-2 mgf-1)?M$hf,'"; LINE m$
+ 5135 IF m$<"1" OR m$>"2" THEN GO TO 5130
+ 5150 IF m$="1" THEN GO TO 5110
+ 5199 REM * L,' Lh[dp    
+ 5200 INK 5: CLS 
+ 5202 PRINT " H$vH Jlsr (3)ms $' mrfhsl KdH"
+ 5204 PRINT '" GH,s Bd mrfhsl DH'jfH $' .',aDl"
+ 5206 PRINT '"$' mb mkhoM' L`ngu J$,w mf B$jal"
+ 5210 PRINT '"   $I , #hdjlH 2 Xdxw Zshp $I KN"
+ 5215 PRINT '"    Dtkl #hdjlH Bd Xdxw $dy Zshp"
+ 5220 PRINT '"                .',aDl X$_l '$H'"
+ 5225 PRINT '"   'dhf 1 Kbd#hf Dd,ozshp DH$f"
+ 5230 PRINT '"   mlo' 'dhf 2 Kbd#hf , ~L~ mlo'"
+ 5235 PRINT '"  $j]d$s mb Dsb .'I' $hat H$ ~A~"
+ 5250 PRINT '"    'IH,z H$ Dd,ozshp Rx 'kb Glu"
+ 5252 PRINT '"                           .JaH'"
+ 5254 FOR C=0 TO 70: NEXT C: PRINT INK 7;#0;"       ";u$: PAUSE 0
+ 5256 CLS : PRINT "   Dd,ozshp mf $'hr mbdj$,w $'"
+ 5260 PRINT '"'dI' $hat H$ ~(L\*)G~ mlo' 'dahfk"
+ 5265 PRINT '" #hdjlH Jlsr KdH #H mb Dwza $I"
+ 5270 PRINT '"    mrfhsl $o#hyN 'kb Fsb D$jadf"
+ 5275 PRINT '"                      .',f 'IH,z"
+ 5280 FOR C=0 TO 70: NEXT C: PRINT INK 7;#0;"       ";u$: PAUSE 0
+ 5285 CLS : PRINT "   GH,s 9 Glha D#hf #H Jlsr $I"
+ 5300 PRINT '" mb JsH Tgjzl mkdl# 9 $' D'H$tkH"
+ 5302 PRINT '"  Kbd#hf MH,zg' mf GH,s mkdl# mb"
+ 5304 PRINT '"  mf Xdxw Dd,ozshp .',aDl FhzjkH"
+ 5306 PRINT '"   .'$H' $f $' #hdjlH 10 GH,s $I"
+ 5310 PRINT ''"  'dahf Rt,l"
+ 5315 FOR C=0 TO 70: NEXT C: PRINT INK 7;#0;"       ";u$: PAUSE 0
+ 5400 CLS : INK 6
+ 5402 PRINT ":'dkb '$H, H$ ',z LsH ~1~ Kbd#hf"
+ 5404 PRINT PAPER 2'"'dkbk M'htjsH T$x 10 #H Adf ht_g"
+ 5406 INPUT LINE m$
+ 5410 IF LEN m$>10 OR m$="" THEN GO TO 5406
+ 5412 PRINT AT 4,32-LEN m$; PAPER 1;m$: BEEP .1,24: FOR c=0 TO 20: NEXT c
+ 5415 CLS : PRINT ":'dkb '$H, H$ ',z LsH ~2~ Kbd#hf"
+ 5420 PRINT PAPER 2'"'dkbk M'htjsH T$x 10 #H Adf ht_g"
+ 5425 INPUT LINE n$
+ 5430 IF LEN n$>10 OR n$="" THEN GO TO 5425
+ 5435 PRINT PAPER 1;AT 4,32-LEN n$;n$: BEEP .1,24: FOR c=0 TO 20: NEXT c
+ 5450 GO SUB 4000
+ 5460 FOR C=0 TO 70: NEXT C: PRINT INK 7;#0;"       ";u$: PAUSE 0
+ 5470 GO SUB 1000
+ 5480 GO SUB 2000
+ 5490 GO SUB 3000
+ 5500 BORDER 0: PAPER 0: INK 4: BRIGHT 1: CLS 
+ 5502 PRINT '"        !mrfhsl Khdhp"
+ 5504 FOR c=1 TO 6: BEEP .2,3: BEEP .3,2: NEXT c
+ 5510 PRINT '''' PAPER 1; INK 7;"          #hdjlH ";p1;" ";m$
+ 5515 PRINT ' PAPER 2; INK 7;"          #hdjlH ";p2;" ";n$
+ 5520 PRINT ''"          :Jsdb M'k$f JsH XqH,"
+ 5530 IF p1>p2 THEN PRINT AT 17,3; FLASH 1; INK 6;m$
+ 5540 IF p2>p1 THEN PRINT AT 17,3; FLASH 1; INK 6;n$
+ 5550 IF p1=p2 THEN PRINT AT 17,3; FLASH 1; INK 3;"!!! L',z"
+ 5555 FOR c=1 TO 50: BEEP RND/8,c
+ 5560 BORDER RND*7: NEXT c: BORDER 0
+ 5565 FOR C=0 TO 70: NEXT C: PRINT INK 7;#0;"       ";u$: PAUSE 0
+ 5600 CLS : INK 7: PRINT "    J&g mrfhsl KdH #H L$H,'dlH"
+ 5605 PRINT '" KdH Wdhrk L'klaIH,z .'dahf M'$f"
+ 5610 PRINT '" $' H$ ',z JH'hikadp hd , mlhk$f"
+ 5615 PRINT '"   :Dkhak mf , M'H' Xdq,j DHmlhk"
+ 5617 PRINT PAPER 1;"                                "
+ 5620 PRINT PAPER 1;" 9$33 Khfhdz DdH,I D,$dk KH$ij  "
+ 5622 PRINT PAPER 1;"                                "
+ 5625 PRINT PAPER 1;"       MhoakH' MhofH,z  6 Bngp  "
+ 5627 PRINT PAPER 1;"                                "
+ 5630 PRINT PAPER 1;"              KH$dH J]kw , Lgu  "
+ 5632 PRINT PAPER 1;"                                "
+ 5635 PRINT PAPER 1;"            M'H#Dkhifif KH$lhb  "
+ 5637 PRINT PAPER 1;"                                "
+ 5640 PRINT "  hikN mf $,'rlgHDjx hj 'dkb Jsp"
+ 5645 PRINT '"                     .',a Do'ds$"
+ 5650 PRINT '" .L$bajl mkhldlw hla D$hblI #H"
+ 5655 PRINT "  ;thxH'z ng]t"
+ 5660 GO TO 5660
+ 7000 REM * SUBROUTINE WON 
+ 7005 IF C$=M$ THEN LET P1=P1+10
+ 7010 IF C$=N$ THEN LET P2=P2+10
+ 7015 LET SL=20: GO SUB 9720
+ 7020 PRINT INK 2; PAPER 7; BRIGHT 1;AT 20,12;" Xdxw Zshp "
+ 7025 BEEP .1,25: RETURN 
+ 7050 REM * SUBROUTINE LOST      
+ 7055 LET SL=20: GO SUB 9720
+ 7060 PRINT INK 3; PAPER 7; BRIGHT 1;AT 20,12;" _gy Zshp "
+ 7065 BEEP .5,5: RETURN 
+ 8000 REM *** SUBROUTINE                      BOARD *************
+ 8005 BRIGHT 0: BORDER RND*7: IF RND<.5 THEN GO TO 8015
+ 8010 PAPER RND+1: INK RND*2+5: GO TO 8020
+ 8015 PAPER RND*2+4: INK RND
+ 8020 IF RND<.5 THEN RANDOMIZE USR B1: GO TO 8030
+ 8025 RANDOMIZE USR B2
+ 8030 CLS 
+ 8035 PRINT INK 9;AT 0,5;"Jlsr";AT 0,21-LEN N$;N$;AT 0,32-LEN M$;M$
+ 8040 PRINT INK 9;AT 1,13;P2;"  ";AT 1,23;P1;"  "
+ 8045 IF SECTION=1 THEN PRINT AT 1,2;"G,H"
+ 8046 IF SECTION=2 THEN PRINT AT 1,2;"L,'"
+ 8047 IF section=3 THEN PRINT AT 1,2;"L,s"
+ 8050 IF RND<.5 THEN GO TO 8065
+ 8060 FOR C=2 TO 21: PRINT AT C,0;"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t": NEXT C: GO TO 8070
+ 8065 FOR C=2 TO 21: PRINT AT C,0;"\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u\u": NEXT C
+ 8070 BRIGHT 1: PAPER 7
+ 8075 IF NOT S(1) THEN GO TO 8090
+ 8080 PRINT AT 4,22;"         "
+ 8082 PRINT AT 5,22; INK 4;"  Jhdf'H "
+ 8084 PRINT AT 6,22;"         "
+ 8086 PRINT AT 7,22;"         "
+ 8088 PRINT AT 8,22; INK 7; PAPER 0;"    1    "
+ 8090 IF NOT s(2) THEN GO TO 8105
+ 8095 PRINT AT 4,12;"         "
+ 8097 PRINT AT 5,12; INK 1;" Jhl,g]l "
+ 8099 PRINT AT 6,12; INK 1;"  Dl,lu  "
+ 8101 PRINT AT 7,12;"         "
+ 8103 PRINT AT 8,12; INK 7; PAPER 0;"    2    "
+ 8105 IF NOT s(3) THEN GO TO 8120
+ 8110 PRINT AT 4,2;"         "
+ 8112 PRINT AT 5,2; INK 0;"  Zd$hj  "
+ 8114 PRINT AT 6,2;"         "
+ 8116 PRINT AT 7,2;"         "
+ 8118 PRINT AT 8,2; INK 7; PAPER 0;"    3    "
+ 8120 IF NOT s(4) THEN GO TO 8135
+ 8122 PRINT AT 10,22;"         "
+ 8124 PRINT AT 11,22; INK 1;"   A,I   "
+ 8126 PRINT AT 12,22;"         "
+ 8128 PRINT AT 13,22;"         "
+ 8130 PRINT AT 14,22; INK 7; PAPER 0;"    4    "
+ 8135 IF NOT s(5) THEN GO TO 8150
+ 8140 PRINT AT 10,12;"         "
+ 8142 PRINT AT 11,12; INK 2;"  mr$tjl "
+ 8144 PRINT AT 12,12;"         "
+ 8146 PRINT AT 13,12;"         "
+ 8148 PRINT AT 14,12; INK 7; PAPER 0;"    5    "
+ 8150 IF NOT s(6) THEN GO TO 8165
+ 8152 PRINT AT 10,2;"         "
+ 8154 PRINT AT 11,2; INK 3;"   A#$,  "
+ 8156 PRINT AT 12,2;"         "
+ 8158 PRINT AT 13,2;"         "
+ 8160 PRINT AT 14,2; PAPER 0; INK 7;"    6    "
+ 8165 IF NOT s(7) THEN GO TO 8180
+ 8170 PRINT AT 16,22;"         "
+ 8172 PRINT AT 17,22; INK 3;"  DtH$[v "
+ 8174 PRINT AT 18,22;"         "
+ 8176 PRINT AT 19,22;"         "
+ 8178 PRINT AT 20,22; PAPER 0; INK 7;"    7    "
+ 8180 IF NOT s(8) THEN GO TO 8195
+ 8182 PRINT AT 16,12;"         "
+ 8184 PRINT AT 17,12; INK 4;"   Dkd'  "
+ 8186 PRINT AT 18,12;"         "
+ 8188 PRINT AT 19,12;"         "
+ 8190 PRINT AT 20,12; INK 7; PAPER 0;"    8    "
+ 8195 IF NOT s(9) THEN GO TO 8210
+ 8200 PRINT AT 16,2;"         "
+ 8202 PRINT AT 17,2; INK 1;"  WhzaH  "
+ 8204 PRINT AT 18,2; INK 1;"  T,$]l  "
+ 8206 PRINT AT 19,2;"         "
+ 8208 PRINT AT 20,2; PAPER 0; INK 7;"    9    "
+ 8210 BRIGHT 0: RETURN 
+ 8350 REM * SUBTOUTINE INPUTS ***
+ 8355 INPUT LINE b$: RETURN 
+ 8400 REM * SUBROUTINE INKEY$ ***
+ 8402 POKE 23658,0
+ 8405 LET A$=INKEY$
+ 8410 IF A$="" THEN GO TO 8405
+ 8415 RETURN 
+ 8500 REM * SUBROUTINE RIGHT ****
+ 8505 IF A$="l" THEN LET q1=q1+2
+ 8510 IF a$="a" THEN LET q2=q2+2
+ 8515 LET sl=20: GO SUB 9700
+ 8520 PRINT INK 2; PAPER 6; FLASH 1;AT 21,12;" Xdxw Zshp "
+ 8525 BEEP .1,25
+ 8530 RETURN 
+ 8550 REM * SUBROUTINE WRONG ****
+ 8555 IF A$="l" THEN LET q1=q1-1
+ 8560 IF a$="a" THEN LET q2=q2-1
+ 8565 LET sl=20: GO SUB 9700
+ 8570 PRINT INK 1; PAPER 6; FLASH 1;AT 20,12;" _gy Zshp "
+ 8575 BEEP .5,5
+ 8580 RETURN 
+ 8600 REM * SUBROUTINE BLACK    
+ 8605 LET s=VAL b$
+ 8610 LET s(s)=0
+ 8615 IF s=1 OR s=2 OR s=3 THEN LET l=4
+ 8618 IF s=4 OR s=5 OR s=6 THEN LET l=10
+ 8620 IF s=7 OR s=8 OR s=9 THEN LET l=16
+ 8622 IF s=1 OR s=4 OR s=7 THEN LET k=22
+ 8624 IF s=2 OR s=5 OR s=8 THEN LET k=12
+ 8626 IF s=3 OR s=6 OR s=9 THEN LET k=2
+ 8630 FOR c=0 TO 4
+ 8635 PRINT PAPER 0;AT l+c,k;"         ": NEXT c
+ 8638 LET c=20: FOR s=30 TO 0 STEP -3: BEEP 1/c,s: LET c=c+30: NEXT s
+ 8640 RETURN 
+ 9700 FOR C=SL TO 21: PRINT AT C,0;"                                "
+ 9710 NEXT C: RETURN 
+ 9720 FOR C=21 TO SL STEP -1: PRINT AT C,0;"                                "
+ 9730 NEXT C: RETURN 
+ 9740 FOR c=fl TO sl STEP -1
+ 9745 PRINT AT c,0;"                                ": NEXT c: RETURN 
+ 9800 REM *** SUBROUTINE                      INITIALIZATION ****
+ 9802 LET P1=0: LET P2=0: LET BOARD=8000
+ 9806 LET B1=65153: LET B2=64958
+ 9808 LET B3=64763: LET B4=64568
+ 9810 LET U$=" 'dI' $hat mlo' Bd "
+ 9812 LET INKEY=8400: LET inputs=8350
+ 9814 LET RIGHT=8500: LET WRONG=8550
+ 9816 LET B$=""
+ 9818 LET v$=":'dkb FhzjkH "
+ 9820 LET black=8600
+ 9822 LET won=7000: LET lost=7050
+ 9825 POKE 23609,32
+ 9830 DIM S(9): FOR C=1 TO 9: LET S(C)=1: NEXT C
+ 9840 POKE 23658,0
+ 9997 RETURN 
+ 9998 POKE 23606,56: POKE 23607,248: RETURN 
+ 9999 POKE 23606,0: POKE 23607,60: RETURN 
